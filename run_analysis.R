@@ -21,12 +21,12 @@ features <- read.csv2("features.txt",sep=" ", header=FALSE)
 colnames(features) <- c("id","feature")
 
 # Identify features we care about: these have "[M|m]ean" or "[S|s]td" in their names.
-myFeatures <- features[features$id %in% grep("mean|Mean|Std|std",features$feature),]
+myFeatures <- features[features$id %in% grep("-mean\\(|-std\\(",features$feature),]
 
 # Read in the values from the "test" subdirectory...
 xtest <- read.csv2("test/X_test.txt",header=FALSE,strip.white=TRUE,sep="")
 # ...keep only columns we care about
-xtest <- xtest[,features$id %in% grep("mean|Mean|Std|std",features$feature)]
+xtest <- xtest[,features$id %in% grep("-mean\\(|-std\\(",features$feature)]
 # ...set the remaining columns' names using the feature map 
 colnames(xtest) <- myFeatures$feature
 # ...reinterpret all scientific notation as numerics
@@ -44,7 +44,7 @@ xtest <- merge(xtest, activity_labels, by.x="act",by.y="id")
 
 # The next block does exactly the same steps, but for the "train" subdirectory.
 xtrain <- read.csv2("train/X_train.txt",header=FALSE,strip.white=TRUE,sep="")
-xtrain <- xtrain[,features$id %in% grep("mean|Mean|Std|std",features$feature)]
+xtrain <- xtrain[,features$id %in% grep("-mean\\(|-std\\(",features$feature)]
 colnames(xtrain) <- myFeatures$feature
 xtrain <- factorsNumeric(xtrain)
 subject_train <- read.csv2("train/subject_train.txt",header=FALSE)
