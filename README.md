@@ -34,7 +34,7 @@ The contents of this repository are:
 
 ### Locating the results
 
-The resulting summary file "result.txt</tt> will be found in the current R working directory, i.e., the "UCI HAR Dataset" directory unzipped from the "Human Activity Recognition Using Smartphones" data set.
+The resulting summary file <tt>result.txt</tt> will be found in the current R working directory, i.e., the "UCI HAR Dataset" directory unzipped from the "Human Activity Recognition Using Smartphones" data set.
 
 ### Interpreting the results
 
