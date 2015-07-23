@@ -20,11 +20,17 @@ Each record contains a value for the variables <tt>subject</tt>, <tt>activity</t
 
 Identifies the subject who performed the activity. 
 
+These values were extracted from the files subject_test.txt and subject_train.txt in the source data set. Each observation in those files corresponds one-to-one with the respective observation in X_test.txt and X_train.txt.
+
 Its integer values range from 1 to 30 inclusive.
 
 ### activity
 
 Identifies the activity measured. 
+
+These values were extracted from the files y_test.txt and y_train.txt in the source data set. Each observation in those files corresponds one-to-one with the respective observation in X_test.txt and X_train.txt.
+
+The string names of the activities were taken from activity_labels.txt.
 
 Its set of values is
 
@@ -56,6 +62,8 @@ Identifies the measurement. The set of measurements in result.txt is the subset 
 * fBodyAccJerkMag
 * fBodyGyroMag
 * fBodyGyroJerkMag
+
+The sequence of variables in each record in the files X_test.txt and X_train.txt is enumerated in the file features.txt.
 
 The set of values of this variable, and the unit of the mean_value variable given the measurement value, is
 
@@ -127,3 +135,11 @@ fBodyBodyGyroMag-mean()  | radians per second
 fBodyBodyGyroMag-std()    | radians per second                           
 fBodyBodyGyroJerkMag-mean()  | radians per second                        
 fBodyBodyGyroJerkMag-std()  | radians per second                        
+
+### mean_value
+
+Mean value for this measurement for this subject performing this activity.
+
+The unit of the mean_value in an observation depends on the value of the measurement variable, as given in the table above.
+
+This field was calculated as the mean of all observations for each unique triplet of combinations of values in the variables (subject, activity, measurement).
